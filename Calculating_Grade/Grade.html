@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style type="text/css">
+        body {
+            background-color: rosybrown;
+        }
+
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+        }
+
+        fieldset {
+            border-color: rgb(177, 81, 81);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="center">
+        <fieldset>
+            <h1 style="color: rgb(112, 36, 36);">Enter your score</h1><br>
+            <center>
+                <Form action="Grade.php" method="post">
+                    <input type="number" name="Score" min="0" max="100"><br><br>
+                    <input type="submit" value="submit">
+                </Form>
+            </center>
+        </fieldset>
+        
+    
+    </div>
+        <a href= "../index.html"> BACK </a>
+</body>
+
+</html>
