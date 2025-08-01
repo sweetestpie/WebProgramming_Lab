@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {
+            background-color: #b97777;
+            font-family: "Lucida Sans";
+            display: block;
+
+        }
+
+        div {
+            width: 600px;
+            border: 15px solid wheat;
+            padding: 40px;
+            margin: 100px;
+            background-color: rosybrown;
+            position: relative;
+            left: 500px;
+        }
+
+        p,
+        h1,
+        form {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        #stylized {
+            border: 15px solid wheat;
+        }
+
+        #stylized input {
+            float: left;
+            width: 200px;
+            border: solid 1px black;
+            padding: 4px 2px;
+        }
+
+        #stylized label {
+            float: left;
+            width: 200px;
+            padding: 6px 4px;
+        }
+
+        h2:first-letter {
+            font-size: xx-large;
+        }
+
+        h2 {
+            color: #831b1b;
+        }
+
+        fieldset {
+            border: 1px solid #831b1b;
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="stylized">
+        <fieldset>
+            <legend>
+                <h2>
+                    Personal Info
+                </h2>
+            </legend>
+            <form method="post">
+                <label>First Name :</label> <input style="background: rgb(213, 213, 241);" type="text"
+                    size="15"><br><br>
+                <label>Last Name :</label> <input style="background: rgb(143, 228, 195);" type="text" size="15"><br><br>
+                <label>Gender :</label>
+                <label style="display:flex; width: 100px; "><input type="radio" name="yesno" value="Male">Male
+                    <input type="radio" name="yesno" value="Female">Female</label>
+                <br><br>
+                <label>Birth :</label><input type="date" value="selected">
+
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>
+                <h2>
+                    Account Info
+                </h2>
+            </legend>
+            <form method="post">
+                <label>Username :</label><input style="border: solid 2px rgb(42, 42, 185);" type="text"
+                    size="15"><br><br>
+                <label>Password :</label> <input style="border: solid 2px rgb(185, 42, 66);" type="password"
+                    name="pwd"><br><br>
+                <label>Confirm Password :</label><input style="border: solid 2px rgb(185, 42, 66);" type="text"
+                    size="15"><br><br>
+                <label>Email :</label> <input style="border: solid 2px rgb(42, 42, 185);" type="password"
+                    name="pwd"><br><br><br>
+                <input style="
+                width: 20px;
+                " type="checkbox" name="drive1" value="Agree">I agree to the Terms of Service and Privacy
+                Policy.<br><br><br>
+                <input class="button" type="button" onclick="alert('กด Submit แล้วงับ<3')" value="Submit">
+
+            </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>

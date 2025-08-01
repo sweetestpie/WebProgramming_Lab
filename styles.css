@@ -1,0 +1,14 @@
+body {
+    background-color: #ffdfdf;
+}
+
+h3 {
+    color: #f98686;
+    text-decoration: line-through;
+}
+
+#Like {
+    color: #584481;
+    font-weight: bold;
+    text-decoration: underline
+}
