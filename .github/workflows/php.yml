@@ -1,20 +1,47 @@
-name: Deploy to GitHub Pages
+name: PHP Deployment
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      # Optional: Build steps (if you need to compile assets, etc.)
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, intl
+        coverage: none
+        
+    - name: Validate composer.json and composer.lock
+      run: |
+        if [ -f "composer.json" ]; then
+          composer validate --strict
+        fi
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+    - name: Install dependencies
+      run: |
+        if [ -f "composer.json" ]; then
+          composer install --prefer-dist --no-progress
+        fi
+
+    - name: Run test suite
+      run: |
+        if [ -f "phpunit.xml" ]; then
+          vendor/bin/phpunit
+        fi
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      if: github.ref == 'refs/heads/main'
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        keep_files: true
