@@ -23,7 +23,7 @@ jobs:
     - name: Validate composer.json and composer.lock
       run: |
         if [ -f "composer.json" ]; then
-          composer validate --strict
+          composer validate --strict test
         fi
 
     - name: Install dependencies
